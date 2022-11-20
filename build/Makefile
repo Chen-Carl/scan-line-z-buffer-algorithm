@@ -139,6 +139,276 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+dependency/Log/LogAppender/logAppender.o: dependency/Log/LogAppender/logAppender.cpp.o
+
+.PHONY : dependency/Log/LogAppender/logAppender.o
+
+# target to build an object file
+dependency/Log/LogAppender/logAppender.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogAppender/logAppender.cpp.o
+.PHONY : dependency/Log/LogAppender/logAppender.cpp.o
+
+dependency/Log/LogAppender/logAppender.i: dependency/Log/LogAppender/logAppender.cpp.i
+
+.PHONY : dependency/Log/LogAppender/logAppender.i
+
+# target to preprocess a source file
+dependency/Log/LogAppender/logAppender.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogAppender/logAppender.cpp.i
+.PHONY : dependency/Log/LogAppender/logAppender.cpp.i
+
+dependency/Log/LogAppender/logAppender.s: dependency/Log/LogAppender/logAppender.cpp.s
+
+.PHONY : dependency/Log/LogAppender/logAppender.s
+
+# target to generate assembly for a file
+dependency/Log/LogAppender/logAppender.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogAppender/logAppender.cpp.s
+.PHONY : dependency/Log/LogAppender/logAppender.cpp.s
+
+dependency/Log/LogEvent/logEvent.o: dependency/Log/LogEvent/logEvent.cpp.o
+
+.PHONY : dependency/Log/LogEvent/logEvent.o
+
+# target to build an object file
+dependency/Log/LogEvent/logEvent.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogEvent/logEvent.cpp.o
+.PHONY : dependency/Log/LogEvent/logEvent.cpp.o
+
+dependency/Log/LogEvent/logEvent.i: dependency/Log/LogEvent/logEvent.cpp.i
+
+.PHONY : dependency/Log/LogEvent/logEvent.i
+
+# target to preprocess a source file
+dependency/Log/LogEvent/logEvent.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogEvent/logEvent.cpp.i
+.PHONY : dependency/Log/LogEvent/logEvent.cpp.i
+
+dependency/Log/LogEvent/logEvent.s: dependency/Log/LogEvent/logEvent.cpp.s
+
+.PHONY : dependency/Log/LogEvent/logEvent.s
+
+# target to generate assembly for a file
+dependency/Log/LogEvent/logEvent.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogEvent/logEvent.cpp.s
+.PHONY : dependency/Log/LogEvent/logEvent.cpp.s
+
+dependency/Log/LogFormatter/logFormatter.o: dependency/Log/LogFormatter/logFormatter.cpp.o
+
+.PHONY : dependency/Log/LogFormatter/logFormatter.o
+
+# target to build an object file
+dependency/Log/LogFormatter/logFormatter.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogFormatter/logFormatter.cpp.o
+.PHONY : dependency/Log/LogFormatter/logFormatter.cpp.o
+
+dependency/Log/LogFormatter/logFormatter.i: dependency/Log/LogFormatter/logFormatter.cpp.i
+
+.PHONY : dependency/Log/LogFormatter/logFormatter.i
+
+# target to preprocess a source file
+dependency/Log/LogFormatter/logFormatter.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogFormatter/logFormatter.cpp.i
+.PHONY : dependency/Log/LogFormatter/logFormatter.cpp.i
+
+dependency/Log/LogFormatter/logFormatter.s: dependency/Log/LogFormatter/logFormatter.cpp.s
+
+.PHONY : dependency/Log/LogFormatter/logFormatter.s
+
+# target to generate assembly for a file
+dependency/Log/LogFormatter/logFormatter.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LogFormatter/logFormatter.cpp.s
+.PHONY : dependency/Log/LogFormatter/logFormatter.cpp.s
+
+dependency/Log/Logger/logger.o: dependency/Log/Logger/logger.cpp.o
+
+.PHONY : dependency/Log/Logger/logger.o
+
+# target to build an object file
+dependency/Log/Logger/logger.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/Logger/logger.cpp.o
+.PHONY : dependency/Log/Logger/logger.cpp.o
+
+dependency/Log/Logger/logger.i: dependency/Log/Logger/logger.cpp.i
+
+.PHONY : dependency/Log/Logger/logger.i
+
+# target to preprocess a source file
+dependency/Log/Logger/logger.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/Logger/logger.cpp.i
+.PHONY : dependency/Log/Logger/logger.cpp.i
+
+dependency/Log/Logger/logger.s: dependency/Log/Logger/logger.cpp.s
+
+.PHONY : dependency/Log/Logger/logger.s
+
+# target to generate assembly for a file
+dependency/Log/Logger/logger.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/Logger/logger.cpp.s
+.PHONY : dependency/Log/Logger/logger.cpp.s
+
+dependency/Log/LoggerManager/loggerManager.o: dependency/Log/LoggerManager/loggerManager.cpp.o
+
+.PHONY : dependency/Log/LoggerManager/loggerManager.o
+
+# target to build an object file
+dependency/Log/LoggerManager/loggerManager.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LoggerManager/loggerManager.cpp.o
+.PHONY : dependency/Log/LoggerManager/loggerManager.cpp.o
+
+dependency/Log/LoggerManager/loggerManager.i: dependency/Log/LoggerManager/loggerManager.cpp.i
+
+.PHONY : dependency/Log/LoggerManager/loggerManager.i
+
+# target to preprocess a source file
+dependency/Log/LoggerManager/loggerManager.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LoggerManager/loggerManager.cpp.i
+.PHONY : dependency/Log/LoggerManager/loggerManager.cpp.i
+
+dependency/Log/LoggerManager/loggerManager.s: dependency/Log/LoggerManager/loggerManager.cpp.s
+
+.PHONY : dependency/Log/LoggerManager/loggerManager.s
+
+# target to generate assembly for a file
+dependency/Log/LoggerManager/loggerManager.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Log/LoggerManager/loggerManager.cpp.s
+.PHONY : dependency/Log/LoggerManager/loggerManager.cpp.s
+
+dependency/Thread/Mutex/mutex.o: dependency/Thread/Mutex/mutex.cpp.o
+
+.PHONY : dependency/Thread/Mutex/mutex.o
+
+# target to build an object file
+dependency/Thread/Mutex/mutex.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Mutex/mutex.cpp.o
+.PHONY : dependency/Thread/Mutex/mutex.cpp.o
+
+dependency/Thread/Mutex/mutex.i: dependency/Thread/Mutex/mutex.cpp.i
+
+.PHONY : dependency/Thread/Mutex/mutex.i
+
+# target to preprocess a source file
+dependency/Thread/Mutex/mutex.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Mutex/mutex.cpp.i
+.PHONY : dependency/Thread/Mutex/mutex.cpp.i
+
+dependency/Thread/Mutex/mutex.s: dependency/Thread/Mutex/mutex.cpp.s
+
+.PHONY : dependency/Thread/Mutex/mutex.s
+
+# target to generate assembly for a file
+dependency/Thread/Mutex/mutex.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Mutex/mutex.cpp.s
+.PHONY : dependency/Thread/Mutex/mutex.cpp.s
+
+dependency/Thread/Semaphore/sem.o: dependency/Thread/Semaphore/sem.cpp.o
+
+.PHONY : dependency/Thread/Semaphore/sem.o
+
+# target to build an object file
+dependency/Thread/Semaphore/sem.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Semaphore/sem.cpp.o
+.PHONY : dependency/Thread/Semaphore/sem.cpp.o
+
+dependency/Thread/Semaphore/sem.i: dependency/Thread/Semaphore/sem.cpp.i
+
+.PHONY : dependency/Thread/Semaphore/sem.i
+
+# target to preprocess a source file
+dependency/Thread/Semaphore/sem.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Semaphore/sem.cpp.i
+.PHONY : dependency/Thread/Semaphore/sem.cpp.i
+
+dependency/Thread/Semaphore/sem.s: dependency/Thread/Semaphore/sem.cpp.s
+
+.PHONY : dependency/Thread/Semaphore/sem.s
+
+# target to generate assembly for a file
+dependency/Thread/Semaphore/sem.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/Semaphore/sem.cpp.s
+.PHONY : dependency/Thread/Semaphore/sem.cpp.s
+
+dependency/Thread/thread.o: dependency/Thread/thread.cpp.o
+
+.PHONY : dependency/Thread/thread.o
+
+# target to build an object file
+dependency/Thread/thread.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/thread.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/thread.cpp.o
+.PHONY : dependency/Thread/thread.cpp.o
+
+dependency/Thread/thread.i: dependency/Thread/thread.cpp.i
+
+.PHONY : dependency/Thread/thread.i
+
+# target to preprocess a source file
+dependency/Thread/thread.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/thread.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/thread.cpp.i
+.PHONY : dependency/Thread/thread.cpp.i
+
+dependency/Thread/thread.s: dependency/Thread/thread.cpp.s
+
+.PHONY : dependency/Thread/thread.s
+
+# target to generate assembly for a file
+dependency/Thread/thread.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/Thread/thread.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/Thread/thread.cpp.s
+.PHONY : dependency/Thread/thread.cpp.s
+
+dependency/utils/getInfo.o: dependency/utils/getInfo.cpp.o
+
+.PHONY : dependency/utils/getInfo.o
+
+# target to build an object file
+dependency/utils/getInfo.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/utils/getInfo.cpp.o
+.PHONY : dependency/utils/getInfo.cpp.o
+
+dependency/utils/getInfo.i: dependency/utils/getInfo.cpp.i
+
+.PHONY : dependency/utils/getInfo.i
+
+# target to preprocess a source file
+dependency/utils/getInfo.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/utils/getInfo.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/utils/getInfo.cpp.i
+.PHONY : dependency/utils/getInfo.cpp.i
+
+dependency/utils/getInfo.s: dependency/utils/getInfo.cpp.s
+
+.PHONY : dependency/utils/getInfo.s
+
+# target to generate assembly for a file
+dependency/utils/getInfo.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/dependency/utils/getInfo.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/dependency/utils/getInfo.cpp.s
+.PHONY : dependency/utils/getInfo.cpp.s
+
 src/Rasterizer.o: src/Rasterizer.cpp.o
 
 .PHONY : src/Rasterizer.o
@@ -383,6 +653,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... main"
+	@echo "... dependency/Log/LogAppender/logAppender.o"
+	@echo "... dependency/Log/LogAppender/logAppender.i"
+	@echo "... dependency/Log/LogAppender/logAppender.s"
+	@echo "... dependency/Log/LogEvent/logEvent.o"
+	@echo "... dependency/Log/LogEvent/logEvent.i"
+	@echo "... dependency/Log/LogEvent/logEvent.s"
+	@echo "... dependency/Log/LogFormatter/logFormatter.o"
+	@echo "... dependency/Log/LogFormatter/logFormatter.i"
+	@echo "... dependency/Log/LogFormatter/logFormatter.s"
+	@echo "... dependency/Log/Logger/logger.o"
+	@echo "... dependency/Log/Logger/logger.i"
+	@echo "... dependency/Log/Logger/logger.s"
+	@echo "... dependency/Log/LoggerManager/loggerManager.o"
+	@echo "... dependency/Log/LoggerManager/loggerManager.i"
+	@echo "... dependency/Log/LoggerManager/loggerManager.s"
+	@echo "... dependency/Thread/Mutex/mutex.o"
+	@echo "... dependency/Thread/Mutex/mutex.i"
+	@echo "... dependency/Thread/Mutex/mutex.s"
+	@echo "... dependency/Thread/Semaphore/sem.o"
+	@echo "... dependency/Thread/Semaphore/sem.i"
+	@echo "... dependency/Thread/Semaphore/sem.s"
+	@echo "... dependency/Thread/thread.o"
+	@echo "... dependency/Thread/thread.i"
+	@echo "... dependency/Thread/thread.s"
+	@echo "... dependency/utils/getInfo.o"
+	@echo "... dependency/utils/getInfo.i"
+	@echo "... dependency/utils/getInfo.s"
 	@echo "... src/Rasterizer.o"
 	@echo "... src/Rasterizer.i"
 	@echo "... src/Rasterizer.s"

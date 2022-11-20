@@ -6,5 +6,5 @@ CXX_FLAGS =  -O0 -ggdb -std=c++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/cll/zoe/opencv-4.x/include/opencv4 
+CXX_INCLUDES = -I/data2/cll/zju/cg/Homework1/./dependency -I/data2/cll/zju/cg/Homework1/./dependency/Log -I/data2/cll/zju/cg/Homework1/./dependency/Thread -isystem /home/cll/zoe/opencv-4.x/include/opencv4 
 

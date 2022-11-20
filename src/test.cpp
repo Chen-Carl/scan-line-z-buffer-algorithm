@@ -27,9 +27,10 @@ int main()
     triangle2.setColor(1, cv::Vec3f(185.0, 217.0, 238.0));
     triangle2.setColor(2, cv::Vec3f(185.0, 217.0, 238.0));
     triangles.push_back(triangle2);
-    cv::Mat3f image = rasterizer.draw(triangles);
-    std::cout << image.type() << std::endl;
-    cv::normalize(image, image, 1.0, 0, cv::NORM_MINMAX);
+    cv::Mat3f frameBuffer = rasterizer.draw(triangles);
+    cv::Mat image(700, 700, CV_32FC3, frameBuffer.data);
+    image.convertTo(image, CV_8UC3, 1.0f);
+    cv::cvtColor(image, image, cv::COLOR_RGB2BGR);
     cv::imshow("image", image);
     cv::waitKey(0);
     return 0;

@@ -151,6 +151,123 @@ CMakeFiles/test.dir/src/Zbuffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/Zbuffer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/src/Zbuffer.cpp -o CMakeFiles/test.dir/src/Zbuffer.cpp.s
 
+CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o: ../dependency/Log/LogAppender/logAppender.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Log/LogAppender/logAppender.cpp
+
+CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Log/LogAppender/logAppender.cpp > CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.i
+
+CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Log/LogAppender/logAppender.cpp -o CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.s
+
+CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o: ../dependency/Log/LogEvent/logEvent.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Log/LogEvent/logEvent.cpp
+
+CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Log/LogEvent/logEvent.cpp > CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.i
+
+CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Log/LogEvent/logEvent.cpp -o CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.s
+
+CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o: ../dependency/Log/LogFormatter/logFormatter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Log/LogFormatter/logFormatter.cpp
+
+CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Log/LogFormatter/logFormatter.cpp > CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.i
+
+CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Log/LogFormatter/logFormatter.cpp -o CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.s
+
+CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o: ../dependency/Log/Logger/logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Log/Logger/logger.cpp
+
+CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Log/Logger/logger.cpp > CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.i
+
+CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Log/Logger/logger.cpp -o CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.s
+
+CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o: ../dependency/Log/LoggerManager/loggerManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Log/LoggerManager/loggerManager.cpp
+
+CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Log/LoggerManager/loggerManager.cpp > CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.i
+
+CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Log/LoggerManager/loggerManager.cpp -o CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.s
+
+CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o: ../dependency/Thread/Mutex/mutex.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Thread/Mutex/mutex.cpp
+
+CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Thread/Mutex/mutex.cpp > CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.i
+
+CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Thread/Mutex/mutex.cpp -o CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.s
+
+CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o: ../dependency/Thread/Semaphore/sem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Thread/Semaphore/sem.cpp
+
+CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Thread/Semaphore/sem.cpp > CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.i
+
+CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Thread/Semaphore/sem.cpp -o CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.s
+
+CMakeFiles/test.dir/dependency/Thread/thread.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/Thread/thread.cpp.o: ../dependency/Thread/thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/test.dir/dependency/Thread/thread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/Thread/thread.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/Thread/thread.cpp
+
+CMakeFiles/test.dir/dependency/Thread/thread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/Thread/thread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/Thread/thread.cpp > CMakeFiles/test.dir/dependency/Thread/thread.cpp.i
+
+CMakeFiles/test.dir/dependency/Thread/thread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/Thread/thread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/Thread/thread.cpp -o CMakeFiles/test.dir/dependency/Thread/thread.cpp.s
+
+CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o: ../dependency/utils/getInfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o -c /data2/cll/zju/cg/Homework1/dependency/utils/getInfo.cpp
+
+CMakeFiles/test.dir/dependency/utils/getInfo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/dependency/utils/getInfo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data2/cll/zju/cg/Homework1/dependency/utils/getInfo.cpp > CMakeFiles/test.dir/dependency/utils/getInfo.cpp.i
+
+CMakeFiles/test.dir/dependency/utils/getInfo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/dependency/utils/getInfo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data2/cll/zju/cg/Homework1/dependency/utils/getInfo.cpp -o CMakeFiles/test.dir/dependency/utils/getInfo.cpp.s
+
 # Object files for target test
 test_OBJECTS = \
 "CMakeFiles/test.dir/src/test.cpp.o" \
@@ -159,7 +276,16 @@ test_OBJECTS = \
 "CMakeFiles/test.dir/src/Texture.cpp.o" \
 "CMakeFiles/test.dir/src/Triangle.cpp.o" \
 "CMakeFiles/test.dir/src/ScanLineZbuffer.cpp.o" \
-"CMakeFiles/test.dir/src/Zbuffer.cpp.o"
+"CMakeFiles/test.dir/src/Zbuffer.cpp.o" \
+"CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o" \
+"CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o" \
+"CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o" \
+"CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o" \
+"CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o" \
+"CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o" \
+"CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o" \
+"CMakeFiles/test.dir/dependency/Thread/thread.cpp.o" \
+"CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
@@ -171,6 +297,15 @@ test_EXTERNAL_OBJECTS =
 ../bin/test: CMakeFiles/test.dir/src/Triangle.cpp.o
 ../bin/test: CMakeFiles/test.dir/src/ScanLineZbuffer.cpp.o
 ../bin/test: CMakeFiles/test.dir/src/Zbuffer.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Log/LogAppender/logAppender.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Log/LogEvent/logEvent.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Log/LogFormatter/logFormatter.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Log/Logger/logger.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Log/LoggerManager/loggerManager.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Thread/Mutex/mutex.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Thread/Semaphore/sem.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/Thread/thread.cpp.o
+../bin/test: CMakeFiles/test.dir/dependency/utils/getInfo.cpp.o
 ../bin/test: CMakeFiles/test.dir/build.make
 ../bin/test: /home/cll/zoe/opencv-4.x/lib/libopencv_gapi.so.4.6.0
 ../bin/test: /home/cll/zoe/opencv-4.x/lib/libopencv_stitching.so.4.6.0
@@ -226,7 +361,7 @@ test_EXTERNAL_OBJECTS =
 ../bin/test: /home/cll/zoe/opencv-4.x/lib/libopencv_imgproc.so.4.6.0
 ../bin/test: /home/cll/zoe/opencv-4.x/lib/libopencv_core.so.4.6.0
 ../bin/test: CMakeFiles/test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../bin/test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data2/cll/zju/cg/Homework1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ../bin/test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

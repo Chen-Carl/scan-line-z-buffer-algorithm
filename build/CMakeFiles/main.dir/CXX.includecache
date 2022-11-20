@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/data2/cll/zju/cg/Homework1/src/OBJ_Loader.h
-iostream
--
-vector
--
-string
--
-fstream
--
-math.h
--
-
 /data2/cll/zju/cg/Homework1/src/Rasterizer.cpp
 opencv2/opencv.hpp
 -
@@ -38,10 +26,6 @@ Triangle.h
 Texture.h
 /data2/cll/zju/cg/Homework1/src/Texture.h
 
-/data2/cll/zju/cg/Homework1/src/ScanLineZbuffer.cpp
-ScanLineZbuffer.h
-/data2/cll/zju/cg/Homework1/src/ScanLineZbuffer.h
-
 /data2/cll/zju/cg/Homework1/src/ScanLineZbuffer.h
 opencv2/opencv.hpp
 -
@@ -52,29 +36,13 @@ Triangle.h
 opencv2/opencv.hpp
 -
 
-/data2/cll/zju/cg/Homework1/src/Triangle.cpp
-Triangle.h
-/data2/cll/zju/cg/Homework1/src/Triangle.h
-
 /data2/cll/zju/cg/Homework1/src/Triangle.h
 opencv2/opencv.hpp
 -
 
-/data2/cll/zju/cg/Homework1/src/Zbuffer.cpp
-Zbuffer.h
-/data2/cll/zju/cg/Homework1/src/Zbuffer.h
-
 /data2/cll/zju/cg/Homework1/src/Zbuffer.h
 Triangle.h
 /data2/cll/zju/cg/Homework1/src/Triangle.h
-
-/data2/cll/zju/cg/Homework1/src/main.cpp
-Rasterizer.h
-/data2/cll/zju/cg/Homework1/src/Rasterizer.h
-Triangle.h
-/data2/cll/zju/cg/Homework1/src/Triangle.h
-OBJ_Loader.h
-/data2/cll/zju/cg/Homework1/src/OBJ_Loader.h
 
 /home/cll/zoe/opencv-4.x/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

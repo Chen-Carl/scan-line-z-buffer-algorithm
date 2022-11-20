@@ -11,7 +11,7 @@ Zbuffer::Zbuffer(int height, int width) :
 
 cv::Mat3f Zbuffer::operator()(const std::vector<Triangle> &triangle)
 {
-    std::cout << "Zbuffer rasterizing..." << std::endl;
+    std::cout << "Zbuffer rasterizing ..." << std::endl;
     for (const auto &t : triangle)
     {
         std::array<cv::Vec4f, 3> v;

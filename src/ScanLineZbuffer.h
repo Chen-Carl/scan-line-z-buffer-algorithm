@@ -14,6 +14,8 @@ private:
         float dx;   // delta x bewteen 2 consecutive scan line
         int dy;     // how many scan lines the edge span 
         int index;  // index of triangle to which the edge belongs
+        bool flag;
+        Edge() { flag = false; }
     };
 
     using EdgePair = std::pair<std::shared_ptr<Edge>, std::shared_ptr<Edge>>;
@@ -23,7 +25,7 @@ private:
     int m_width;
     std::vector<Triangle> m_triangles;
     std::vector<std::list<std::shared_ptr<Edge>>> m_edgeTable;
-    std::vector<std::list<int>> m_triangleTable;
+    std::vector<std::vector<int>> m_triangleTable;
     std::vector<std::array<std::shared_ptr<Edge>, 3>> m_triangle2Edge;
     // frame buffer
     cv::Mat3f m_frameBuffer;

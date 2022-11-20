@@ -25,7 +25,10 @@ int main()
     rasterizer.setView(Rasterizer::getViewMatrix(eye));
     rasterizer.setProjection(Rasterizer::getProjectionMatrix(45.0f, 1, 0.1f, 50.0f));
     cv::Mat3f frameBuffer = rasterizer.draw(triangles.value());
-    cv::imshow("frameBuffer", frameBuffer);
+    cv::Mat image(height, width, CV_32FC3, frameBuffer.data);
+    image.convertTo(image, CV_8UC3, 1.0f);
+    cv::cvtColor(image, image, cv::COLOR_RGB2BGR);
+    cv::imshow("image", image);
     cv::waitKey(0);
     return 0;
 }

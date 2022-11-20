@@ -57,12 +57,12 @@ cv::Mat3f Rasterizer::draw(std::vector<Triangle> &triangles)
         {
             newTriangle.setVertex(i, vertexes[i]);
             newTriangle.setNormal(i, cv::Vec3f(normals[i](0), normals[i](1), normals[i](2)));
-            newTriangle.setColor(i, cv::Vec3f(148.0, 121.0, 92.0));
+            newTriangle.setColor(i, cv::Vec3f(255, 255, 255));
         }
         viewSpaceTriangles.push_back(newTriangle);
     }
-    // setRasterizeAlg(ScanLineZbuffer(m_height, m_width, viewSpaceTriangles));
-    setRasterizeAlg(Zbuffer(m_height, m_width));
+    setRasterizeAlg(ScanLineZbuffer(m_height, m_width, viewSpaceTriangles));
+    // setRasterizeAlg(Zbuffer(m_height, m_width));
     cv::Mat3f frameBuffer = m_rasterizeTriangles(viewSpaceTriangles);
     return frameBuffer;
 }

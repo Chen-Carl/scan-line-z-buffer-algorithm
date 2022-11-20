@@ -1,41 +1,82 @@
 #include "ScanLineZbuffer.h"
+#include "log.h"
+
+#define __OUTPUT_DEBUG_INFO__ FALSE
 
 ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triangle> &triangles) :
     m_height(height),
     m_width(width),
     m_triangles(triangles)
 {
-    m_edgeTable = std::vector<std::list<std::shared_ptr<Edge>>>(height);
-    m_triangleTable = std::vector<std::list<int>>(height);
+    m_edgeTable = std::vector<std::list<std::shared_ptr<Edge>>>(m_height, std::list<std::shared_ptr<Edge>>());
+    m_triangleTable = std::vector<std::vector<int>>(m_height, std::vector<int>());
     m_triangle2Edge = std::vector<std::array<std::shared_ptr<Edge>, 3>>(m_triangles.size(), std::array<std::shared_ptr<Edge>, 3>());
     initTable();
     m_frameBuffer = cv::Mat3f(height, width, cv::Vec3f(0, 0, 0));
     m_zBuffer = cv::Mat1f(height, width, std::numeric_limits<float>::max());
+
+#if __OUTPUT_DEBUG_INFO__
+    CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "triangle table";
+    // print triangle table
+    for (int i = 0; i < m_triangleTable.size(); i++)
+    {
+        if (!m_triangleTable[i].empty())
+        {
+            std::cout << "y = " << i << ": ";
+            for (auto &triangle : m_triangleTable[i])
+            {
+                std::cout << m_triangles[triangle].getVertex(0) << " " << m_triangles[triangle].getVertex(1) << " " << m_triangles[triangle].getVertex(2) << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+    CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge table";
+    // print edge table
+    for (int i = 0; i < m_edgeTable.size(); i++)
+    {
+        if (!m_edgeTable[i].empty())
+        {
+            std::cout << "y = " << i << ": ";
+            for (auto &edge : m_edgeTable[i])
+            {
+                std::cout << edge->x << " " << edge->dx << " " << edge->y << " " << edge->dy << "; ";
+            }
+            std::cout << std::endl;
+        }
+    }
+#endif
 }
 
 cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
 {
+    std::cout << "ScanLineZbuffer rasterizing ..." << std::endl;
     // active edge table (AET)
     std::list<EdgePair> activeEdgeTable;
     // active polygon table (APT)
     std::set<int> activeTriangleTable;
 
-    for (int h = 0; h < m_height; h++)
+    for (int h = m_height - 1; h >= 0; h--)
     {
-        for (const auto &edgePair : activeEdgeTable)
+#if __OUTPUT_DEBUG_INFO__
+        CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << " ========== scan line: " << h << " ==========";
+#endif
+        for (auto it = activeEdgeTable.begin(); it != activeEdgeTable.end(); it++)
         {
-            auto &edge1 = edgePair.first;
-            auto &edge2 = edgePair.second;
-            if (edge1->y > h || edge2->y > h)
+            auto &edge1 = it->first;
+            auto &edge2 = it->second;
+            if (edge1->dy > 0 || edge2->dy > 0)
             {
-                activeEdgeTable.remove(edgePair);
+                edge1->flag = (edge1->dy > 0);
+                edge2->flag = (edge2->dy > 0);
+                it = activeEdgeTable.erase(it);
                 if (!insertEdgePair(edge1->index, h, activeEdgeTable))
                 {
                     activeTriangleTable.erase(edge1->index);
                 }
             }
         }
-        for (int x : m_triangleTable[h])
+
+        for (auto x : m_triangleTable[h])
         {
             activeTriangleTable.insert(x);
             insertEdgePair(x, h, activeEdgeTable);
@@ -47,16 +88,65 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
             auto &edge2 = edgePair.second;
             int x1 = static_cast<int>(edge1->x);
             int x2 = static_cast<int>(edge2->x);
+#if __OUTPUT_DEBUG_INFO__
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "interval: x1 = " << x1 << ", x2 = " << x2;
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge1: [" << edge1->x << ", " << edge1->y << ", " << edge1->dx << ", " << edge1->dy << "]";
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge2: [" << edge2->x << ", " << edge2->y << ", " << edge2->dx << ", " << edge2->dy << "]";
+#endif
+            if (x1 > x2)
+            {
+                std::swap(x1, x2);
+            }
             for (int x = x1; x < x2; x++)
             {
                 float z = m_triangles[edge1->index].getInterpolateZ(x, h);
-                if (z < m_zBuffer(h, x))
+                if (z < m_zBuffer(m_height - h - 1, x))
                 {
-                    m_zBuffer(h, x) = z;
-                    m_frameBuffer(h, x) = m_triangles[edge1->index].getUniformColor();
+                    m_zBuffer(m_height - h - 1, x) = z;
+                    m_frameBuffer(m_height - h - 1, x) = m_triangles[edge1->index].getUniformColor();
                 }
             }
+            edge1->x -= edge1->dx;
+            edge2->x -= edge2->dx;
+            edge1->dy++;
+            edge2->dy++;
+            edge1->y--;
+            edge2->y--;
         }
+#if __OUTPUT_DEBUG_INFO__
+        // print active triangle table
+        if (!activeTriangleTable.empty())
+        {
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "activeTriangleTable: ";
+            for (auto &triangle : activeTriangleTable)
+            {
+                std::cout << m_triangles[triangle].getVertex(0) << " " << m_triangles[triangle].getVertex(1) << " " << m_triangles[triangle].getVertex(2) << std::endl;
+            }
+            std::cout << std::endl;
+        }
+        else
+        {
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "activeTriangleTable: empty";
+        }
+        // print active edge table
+        if (!activeEdgeTable.empty())
+        {
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "activeEdgeTable: ";
+            for (auto &edgePair : activeEdgeTable)
+            {
+                auto &edge1 = edgePair.first;
+                auto &edge2 = edgePair.second;
+                std::cout << edge1->x << " " << edge1->dx << " " << edge1->y << " " << edge1->dy << "; ";
+                std::cout << edge2->x << " " << edge2->dx << " " << edge2->y << " " << edge2->dy << "; ";
+                std::cout << std::endl;
+            }
+            std::cout << std::endl;
+        }
+        else
+        {
+            CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "activeEdgeTable: empty";
+        }
+#endif
     }
     return m_frameBuffer;
 }
@@ -95,7 +185,11 @@ void ScanLineZbuffer::initTable()
 
 bool ScanLineZbuffer::cross(const std::shared_ptr<Edge> edge, int line) const
 {
-    return edge->y + edge->dy < line && edge->y >= line;
+    if (edge->y + edge->dy < line && edge->y >= line)
+    {
+        return true;
+    }
+    return false;
 }
 
 bool ScanLineZbuffer::insertEdgePair(int index, int line, std::list<EdgePair> &activeEdgeTable)
@@ -104,7 +198,7 @@ bool ScanLineZbuffer::insertEdgePair(int index, int line, std::list<EdgePair> &a
     bool flag = false;
     for (const auto &edge : m_triangle2Edge[index])
     {
-        if (cross(edge, line))
+        if (cross(edge, line) && edge->dy <= 0)
         {
             if (edgePair.first == nullptr)
             {
@@ -118,6 +212,10 @@ bool ScanLineZbuffer::insertEdgePair(int index, int line, std::list<EdgePair> &a
     }
     if (edgePair.first != nullptr && edgePair.second != nullptr)
     {
+#if __OUTPUT_DEBUG_INFO__
+        CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "insertEdgePair: " << edgePair.first->x << " " << edgePair.first->dx << " " << edgePair.first->y << " " << edgePair.first->dy << "; "
+                                          << edgePair.second->x << " " << edgePair.second->dx << " " << edgePair.second->y << " " << edgePair.second->dy << "; ";
+#endif
         activeEdgeTable.push_back(edgePair);
         flag = true;
         if (edgePair.first->x > edgePair.second->x)

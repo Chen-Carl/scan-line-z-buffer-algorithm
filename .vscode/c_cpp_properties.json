@@ -4,6 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/dependency/**",
+                "${workspaceFolder}/dependency/Log/**",
+                "${workspaceFolder}/dependency/Thread/**",
                 "/home/cll/zoe/opencv-4.x/include/opencv4"
             ],
             "defines": [],
