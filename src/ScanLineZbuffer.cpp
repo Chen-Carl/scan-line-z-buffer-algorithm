@@ -64,10 +64,10 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
         {
             auto &edge1 = it->first;
             auto &edge2 = it->second;
-            if (edge1->dy > 0 || edge2->dy > 0)
+            if (edge1->dy >= 0 || edge2->dy >= 0)
             {
-                edge1->flag = (edge1->dy > 0);
-                edge2->flag = (edge2->dy > 0);
+                edge1->flag = (edge1->dy >= 0);
+                edge2->flag = (edge2->dy >= 0);
                 it = activeEdgeTable.erase(it);
                 if (!insertEdgePair(edge1->index, h, activeEdgeTable))
                 {
@@ -97,7 +97,7 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
             {
                 std::swap(x1, x2);
             }
-            for (int x = x1; x < x2; x++)
+            for (int x = x1; x <= x2; x++)
             {
                 float z = m_triangles[edge1->index].getInterpolateZ(x, h);
                 if (z < m_zBuffer(m_height - h - 1, x))
@@ -198,7 +198,7 @@ bool ScanLineZbuffer::insertEdgePair(int index, int line, std::list<EdgePair> &a
     bool flag = false;
     for (const auto &edge : m_triangle2Edge[index])
     {
-        if (cross(edge, line) && edge->dy <= 0)
+        if (cross(edge, line) && edge->dy < 0)
         {
             if (edgePair.first == nullptr)
             {
