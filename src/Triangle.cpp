@@ -28,6 +28,12 @@ cv::Vec3f Triangle::getUniformColor() const
     return m_colors[0];
 }
 
+cv::Vec3f Triangle::getNormalColor() const
+{
+    cv::Vec3f color = (m_normal[0] + m_normal[1] + m_normal[2]) / 3 * 255;
+    return color;
+}
+
 std::tuple<float, float, float> Triangle::computeBarycentric2D(float x, float y, const std::array<cv::Vec4f, 3> &v)
 {
     float c1 = (x * (v[1][1] - v[2][1]) + (v[2][0] - v[1][0]) * y + v[1][0] * v[2][1] - v[2][0] * v[1][1]) / (v[0][0] * (v[1][1] - v[2][1]) + (v[2][0] - v[1][0]) * v[0][1] + v[1][0] * v[2][1] - v[2][0] * v[1][1]);

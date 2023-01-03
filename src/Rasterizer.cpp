@@ -67,36 +67,18 @@ cv::Mat3f Rasterizer::draw(std::vector<Triangle> &triangles)
     return frameBuffer;
 }
 
-cv::Mat1f Rasterizer::getModelMatrix(float angle)
+cv::Mat1f Rasterizer::getModelMatrix(float angle, cv::Vec3f axis)
 {
-    // angle = angle * M_PI / 180.0f;
-    // cv::Mat1f rotation({4, 4}, {
-    //     cos(angle), 0.0f, sin(angle), 0.0f,
-    //     0.0f, 1.0f, 0.0f, 0.0f,
-    //     -sin(angle), 0.0f, cos(angle), 0.0f,
-    //     0.0f, 0.0f, 0.0f, 1.0f
-    // });
-    // cv::Mat1f scale({4, 4}, {
-    //     2.5, 0, 0, 0,
-    //     0, 2.5, 0, 0,
-    //     0, 0, 2.5, 0,
-    //     0, 0, 0, 1
-    // });
-    // cv::Mat1f translation({4, 4}, {
-    //     1, 0, 0, 0,
-    //     0, 1, 0, 0,
-    //     0, 0, 1, 0,
-    //     0, 0, 0, 1
-    // });
-    // return translation * scale * rotation;
 	angle = angle / 180.0 * M_PI;
-	cv::Mat1f model({4, 4},{
-		std::cos(angle), -std::sin(angle), 0, 0,
-		std::sin(angle), std::cos(angle), 0, 0,
-		0, 0, 1, 0,
-		0, 0, 0, 1
-	});
-    return model;
+    cv::Vec4f axis4f(axis(0), axis(1), axis(2), 0);
+    cv::Mat1f axisp({4, 4}, {
+        0, -axis4f(2), axis4f(1), 0,
+        axis4f(2), 0, -axis4f(0), 0,
+        -axis4f(1), axis4f(0), 0, 0,
+        0, 0, 0, 0
+    });
+    cv::Mat1f rotation = std::cos(angle) * cv::Mat1f::eye(4, 4) + (1 - std::cos(angle)) * axis4f * axis4f.t() + std::sin(angle) * axisp;
+    return rotation;
 }
 
 cv::Mat1f Rasterizer::getProjectionMatrix(float fov, float aspect, float near, float far)

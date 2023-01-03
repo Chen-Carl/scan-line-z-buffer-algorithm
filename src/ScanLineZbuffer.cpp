@@ -1,7 +1,7 @@
 #include "ScanLineZbuffer.h"
 #include "log.h"
 
-#define __OUTPUT_DEBUG_INFO__ FALSE
+#define __OUTPUT_DEBUG_INFO__ true
 
 ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triangle> &triangles) :
     m_height(height),
@@ -18,11 +18,13 @@ ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triang
 #if __OUTPUT_DEBUG_INFO__
     CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "triangle table";
     // print triangle table
+    int __count = 0;
     for (int i = 0; i < m_triangleTable.size(); i++)
     {
         if (!m_triangleTable[i].empty())
         {
-            std::cout << "y = " << i << ": ";
+            std::cout << "y = " << i << ": (total " << m_triangleTable[i].size() << ") ";
+            __count += m_triangleTable[i].size();
             for (auto &triangle : m_triangleTable[i])
             {
                 std::cout << m_triangles[triangle].getVertex(0) << " " << m_triangles[triangle].getVertex(1) << " " << m_triangles[triangle].getVertex(2) << " ";
@@ -30,13 +32,16 @@ ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triang
             std::cout << std::endl;
         }
     }
+    std::cout << "scanning total triangles: " << __count << std::endl;
     CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge table";
     // print edge table
+    __count = 0;
     for (int i = 0; i < m_edgeTable.size(); i++)
     {
         if (!m_edgeTable[i].empty())
         {
-            std::cout << "y = " << i << ": ";
+            std::cout << "y = " << i << ": " << "(total " << m_edgeTable[i].size() << ") ";
+            __count += m_edgeTable[i].size();
             for (auto &edge : m_edgeTable[i])
             {
                 std::cout << edge->x << " " << edge->dx << " " << edge->y << " " << edge->dy << "; ";
@@ -44,11 +49,19 @@ ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triang
             std::cout << std::endl;
         }
     }
+    std::cout << "scanning total edges: " << __count << std::endl;
 #endif
 }
 
 cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
 {
+#if __OUTPUT_DEBUG_INFO__
+    CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "========== triangle normal color ==========";
+    for (const auto &t : triangles)
+    {
+        std::cout << t.getNormalColor() << std::endl;
+    }
+#endif
     std::cout << "ScanLineZbuffer rasterizing ..." << std::endl;
     // active edge table (AET)
     std::list<EdgePair> activeEdgeTable;
@@ -87,7 +100,7 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
             auto &edge1 = edgePair.first;
             auto &edge2 = edgePair.second;
             int x1 = static_cast<int>(edge1->x);
-            int x2 = static_cast<int>(edge2->x);
+            int x2 = static_cast<int>(edge2->x) + 1;
 #if __OUTPUT_DEBUG_INFO__
             CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "interval: x1 = " << x1 << ", x2 = " << x2;
             CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge1: [" << edge1->x << ", " << edge1->y << ", " << edge1->dx << ", " << edge1->dy << "]";
@@ -103,7 +116,7 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
                 if (z < m_zBuffer(m_height - h - 1, x))
                 {
                     m_zBuffer(m_height - h - 1, x) = z;
-                    m_frameBuffer(m_height - h - 1, x) = m_triangles[edge1->index].getUniformColor();
+                    m_frameBuffer(m_height - h - 1, x) = m_triangles[edge1->index].getNormalColor();
                 }
             }
             edge1->x -= edge1->dx;
@@ -185,7 +198,7 @@ void ScanLineZbuffer::initTable()
 
 bool ScanLineZbuffer::cross(const std::shared_ptr<Edge> edge, int line) const
 {
-    if (edge->y + edge->dy < line && edge->y >= line)
+    if (edge->y + edge->dy < line && edge->y + 1 >= line)
     {
         return true;
     }

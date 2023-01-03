@@ -31,7 +31,7 @@ public:
 
     cv::Mat3f draw(std::vector<Triangle> &triangles);
 
-    static cv::Mat1f getModelMatrix(float angle);
+    static cv::Mat1f getModelMatrix(float angle, cv::Vec3f axis = cv::Vec3f(0, 0, 1));
     static cv::Mat1f getProjectionMatrix(float fov, float aspect, float near, float far);
     static cv::Mat1f getViewMatrix(const cv::Vec3f &eye);
 };

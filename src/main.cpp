@@ -6,29 +6,32 @@ std::optional<std::vector<Triangle>> loadModel(const std::string &filepath);
 
 int main()
 {
-    const int width = 700;
-    const int height = 700;
-    const float angle = 140.0f;
+    const int width = 1800;
+    const int height = 1800;
+    const float angle = 0.0f;
     const cv::Vec3f eye { 0.0f, 0.0f, 10.0f };
     
     Rasterizer rasterizer(height, width);
-    rasterizer.setTexture(Texture("models/spot/spot_texture.png"));
+    // rasterizer.setTexture(Texture("models/spot/spot_texture.png"));
     
     auto triangles = loadModel("models/spot/spot_triangulated_good.obj");
+    // auto triangles = loadModel("models/cube/cube.obj");
+
     if (!triangles.has_value())
     {
         std::cerr << "Failed to load model" << std::endl;
         return -1;
     }
 
-    rasterizer.setModel(Rasterizer::getModelMatrix(angle));
+    rasterizer.setModel(Rasterizer::getModelMatrix(angle, cv::Vec3f(1, 1, 1)));
     rasterizer.setView(Rasterizer::getViewMatrix(eye));
-    rasterizer.setProjection(Rasterizer::getProjectionMatrix(45.0f, 1, 0.1f, 50.0f));
+    rasterizer.setProjection(Rasterizer::getProjectionMatrix(15.0f, 1, 0.1f, 50.0f));
     cv::Mat3f frameBuffer = rasterizer.draw(triangles.value());
     cv::Mat image(height, width, CV_32FC3, frameBuffer.data);
     image.convertTo(image, CV_8UC3, 1.0f);
     cv::cvtColor(image, image, cv::COLOR_RGB2BGR);
-    cv::imshow("image", image);
+    // cv::imshow("image", image);
+    cv::imwrite("image.png", image);
     cv::waitKey(0);
     return 0;
 }

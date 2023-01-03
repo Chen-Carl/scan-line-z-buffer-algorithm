@@ -1,4 +1,7 @@
 #include "Zbuffer.h"
+#include "log.h"
+
+#define __OUTPUT_DEBUG_INFO__ false
 
 Zbuffer::Zbuffer(int height, int width) :
     m_height(height),
@@ -9,10 +12,17 @@ Zbuffer::Zbuffer(int height, int width) :
 }
 
 
-cv::Mat3f Zbuffer::operator()(const std::vector<Triangle> &triangle)
+cv::Mat3f Zbuffer::operator()(const std::vector<Triangle> &triangles)
 {
+#if __OUTPUT_DEBUG_INFO__
+    CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "========== triangle normal color ==========";
+    for (const auto &t : triangles)
+    {
+        std::cout << t.getNormalColor() << std::endl;
+    }
+#endif
     std::cout << "Zbuffer rasterizing ..." << std::endl;
-    for (const auto &t : triangle)
+    for (const auto &t : triangles)
     {
         std::array<cv::Vec4f, 3> v;
         v[0] = t.getVertex(0);
@@ -36,7 +46,7 @@ cv::Mat3f Zbuffer::operator()(const std::vector<Triangle> &triangle)
                     if (zInterpolated < m_zBuffer(m_height - j - 1, i))
                     {
                         m_zBuffer(m_height - j - 1, i) = zInterpolated;
-                        m_frameBuffer(m_height - j - 1, i) = t.getUniformColor();
+                        m_frameBuffer(m_height - j - 1, i) = t.getNormalColor();
                     }
                 }
             }

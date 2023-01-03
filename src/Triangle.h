@@ -60,6 +60,8 @@ public:
     float getInterpolateZ(int x, int y) const;
     cv::Vec3f getInterpolateColor(int x, int y) const;
     cv::Vec3f getUniformColor() const;
+    cv::Vec3f getNormalColor() const;
+
 
     static std::tuple<float, float, float> computeBarycentric2D(float x, float y, const std::array<cv::Vec4f, 3> &v);
 };
