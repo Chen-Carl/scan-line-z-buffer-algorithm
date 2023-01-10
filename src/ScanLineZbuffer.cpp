@@ -1,19 +1,17 @@
 #include "ScanLineZbuffer.h"
 #include "log.h"
 
-#define __OUTPUT_DEBUG_INFO__ true
+#define __OUTPUT_DEBUG_INFO__ false
 
 ScanLineZbuffer::ScanLineZbuffer(int height, int width, const std::vector<Triangle> &triangles) :
-    m_height(height),
-    m_width(width),
+    RasterizeAlg(height, width),
     m_triangles(triangles)
 {
     m_edgeTable = std::vector<std::list<std::shared_ptr<Edge>>>(m_height, std::list<std::shared_ptr<Edge>>());
     m_triangleTable = std::vector<std::vector<int>>(m_height, std::vector<int>());
     m_triangle2Edge = std::vector<std::array<std::shared_ptr<Edge>, 3>>(m_triangles.size(), std::array<std::shared_ptr<Edge>, 3>());
     initTable();
-    m_frameBuffer = cv::Mat3f(height, width, cv::Vec3f(0, 0, 0));
-    m_zBuffer = cv::Mat1f(height, width, std::numeric_limits<float>::max());
+    m_zBuffer = cv::Mat1f(width, height, std::numeric_limits<float>::max());
 
 #if __OUTPUT_DEBUG_INFO__
     CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "triangle table";
@@ -99,8 +97,10 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
         {
             auto &edge1 = edgePair.first;
             auto &edge2 = edgePair.second;
-            int x1 = static_cast<int>(edge1->x);
-            int x2 = static_cast<int>(edge2->x) + 1;
+            // int x1 = static_cast<int>(edge1->x);
+            // int x2 = static_cast<int>(edge2->x) + 1;
+            int x1 = std::round(edge1->x);
+            int x2 = std::round(edge2->x);
 #if __OUTPUT_DEBUG_INFO__
             CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "interval: x1 = " << x1 << ", x2 = " << x2;
             CCZOE_LOG_DEBUG(CCZOE_LOG_ROOT()) << "edge1: [" << edge1->x << ", " << edge1->y << ", " << edge1->dx << ", " << edge1->dy << "]";
@@ -113,10 +113,10 @@ cv::Mat3f ScanLineZbuffer::operator()(const std::vector<Triangle> &triangles)
             for (int x = x1; x <= x2; x++)
             {
                 float z = m_triangles[edge1->index].getInterpolateZ(x, h);
-                if (z < m_zBuffer(m_height - h - 1, x))
+                if (z < m_zBuffer(x, h))
                 {
-                    m_zBuffer(m_height - h - 1, x) = z;
-                    m_frameBuffer(m_height - h - 1, x) = m_triangles[edge1->index].getNormalColor();
+                    m_zBuffer(x, h) = z;
+                    m_frameBuffer(x, h) = m_triangles[edge1->index].getNormalColor();
                 }
             }
             edge1->x -= edge1->dx;

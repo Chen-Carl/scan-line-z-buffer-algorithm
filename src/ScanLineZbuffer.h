@@ -2,9 +2,10 @@
 #define __SCANLINEZBUFFER_H__
 
 #include <opencv2/opencv.hpp>
+#include "RasterizeAlg.h"
 #include "Triangle.h"
 
-class ScanLineZbuffer
+class ScanLineZbuffer : public RasterizeAlg
 {
 private:
     struct Edge
@@ -21,14 +22,10 @@ private:
     using EdgePair = std::pair<std::shared_ptr<Edge>, std::shared_ptr<Edge>>;
 
 private:
-    int m_height;
-    int m_width;
     std::vector<Triangle> m_triangles;
     std::vector<std::list<std::shared_ptr<Edge>>> m_edgeTable;
     std::vector<std::vector<int>> m_triangleTable;
     std::vector<std::array<std::shared_ptr<Edge>, 3>> m_triangle2Edge;
-    // frame buffer
-    cv::Mat3f m_frameBuffer;
     cv::Mat1f m_zBuffer;
     void initTable();
     bool cross(const std::shared_ptr<Edge> edge, int line) const;
@@ -37,7 +34,7 @@ private:
 public:
     ScanLineZbuffer() = delete;
     ScanLineZbuffer(int height, int width, const std::vector<Triangle> &triangles);
-    cv::Mat3f operator()(const std::vector<Triangle> &triangles);
+    cv::Mat3f operator()(const std::vector<Triangle> &triangles) override;
 };
 
 #endif

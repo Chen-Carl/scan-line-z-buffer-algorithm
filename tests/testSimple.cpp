@@ -1,7 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include "Rasterizer.h"
 #include "Triangle.h"
-#include "Zbuffer.h"
 
 int main()
 {
@@ -31,7 +30,7 @@ int main()
     cv::Mat image(700, 700, CV_32FC3, frameBuffer.data);
     image.convertTo(image, CV_8UC3, 1.0f);
     cv::cvtColor(image, image, cv::COLOR_RGB2BGR);
-    cv::imshow("image", image);
+    cv::imwrite("testSimple.png", image);
     cv::waitKey(0);
     return 0;
 }

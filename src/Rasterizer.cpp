@@ -1,5 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include "Rasterizer.h"
+#include "OctZbuffer.h"
+#include "HierarchicalZbuffer.h"
 #include "ScanLineZbuffer.h"
 #include "Zbuffer.h"
 
@@ -61,8 +63,10 @@ cv::Mat3f Rasterizer::draw(std::vector<Triangle> &triangles)
         }
         viewSpaceTriangles.push_back(newTriangle);
     }
-    setRasterizeAlg(ScanLineZbuffer(m_height, m_width, viewSpaceTriangles));
-    // setRasterizeAlg(Zbuffer(m_height, m_width));
+    // setRasterizeAlg(ScanLineZbuffer(m_height, m_width, viewSpaceTriangles));
+    // setRasterizeAlg(Zbuffer(m_width, m_height));
+    setRasterizeAlg(OctZbuffer(m_width, m_height));
+    // setRasterizeAlg(HierarchicalZbuffer(m_width, m_height));
     cv::Mat3f frameBuffer = m_rasterizeTriangles(viewSpaceTriangles);
     return frameBuffer;
 }

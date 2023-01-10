@@ -9,6 +9,7 @@ list(APPEND CMAKE_PREFIX_PATH "/home/cll/zoe/opencv-4.x")
 find_package(OpenCV REQUIRED)
 
 include_directories(/home/cll/zoe/opencv-4.x/include/opencv4)
+include_directories(./src)
 include_directories(./dependency)
 include_directories(./dependency/Log)
 include_directories(./dependency/Thread)
@@ -21,6 +22,11 @@ set(SRC_FILE
     src/Triangle.cpp
     src/ScanLineZbuffer.cpp
     src/Zbuffer.cpp
+    src/RasterizeAlg.cpp
+    src/HierarchicalZbuffer.cpp
+    src/OctZbuffer.cpp
+    src/utils/AABB.cpp
+    src/utils/OctTree.cpp
     dependency/Log/LogAppender/logAppender.cpp
     dependency/Log/LogEvent/logEvent.cpp
     dependency/Log/LogFormatter/logFormatter.cpp
@@ -33,13 +39,18 @@ set(SRC_FILE
 )
 
 set(TEST_FILE
-    src/test.cpp
+    tests/testSimple.cpp
     src/Rasterizer.cpp
     src/Shader.cpp
     src/Texture.cpp
     src/Triangle.cpp
     src/ScanLineZbuffer.cpp
     src/Zbuffer.cpp
+    src/RasterizeAlg.cpp
+    src/HierarchicalZbuffer.cpp
+    src/OctZbuffer.cpp
+    src/utils/AABB.cpp
+    src/utils/OctTree.cpp
     dependency/Log/LogAppender/logAppender.cpp
     dependency/Log/LogEvent/logEvent.cpp
     dependency/Log/LogFormatter/logFormatter.cpp
