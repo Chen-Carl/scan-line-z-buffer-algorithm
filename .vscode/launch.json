@@ -4,7 +4,7 @@
         "name": "(gdb) 启动",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/bin/test",
+        "program": "${workspaceFolder}/bin/main",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",

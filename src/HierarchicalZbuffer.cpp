@@ -48,9 +48,9 @@ void HierarchicalZbuffer::drawTriangle(const Triangle &t)
                     float wReciprocal = 1.0 / (alpha / v[0][3] + beta / v[1][3] + gamma / v[2][3]);
                     float zInterpolated = alpha * v[0][2] / v[0][3] + beta * v[1][2] / v[1][3] + gamma * v[2][2] / v[2][3];
                     zInterpolated *= wReciprocal;
-                    if (-zInterpolated < m_zBuffers[0](i, j))
+                    if (zInterpolated < m_zBuffers[0](i, j))
                     {
-                        m_zBuffers[0](i, j) = -zInterpolated;
+                        m_zBuffers[0](i, j) = zInterpolated;
                         m_frameBuffer(i, j) = t.getNormalColor();
                     }
                     // update hierarchical zbuffer

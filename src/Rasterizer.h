@@ -17,7 +17,7 @@ private:
     cv::Mat1f m_view;
     cv::Mat1f m_projection;
 
-    std::function<cv::Mat3f(const std::vector<Triangle> &triangles)> m_rasterizeTriangles;
+    std::function<cv::Mat3f(const std::vector<Triangle>)> m_rasterizeTriangles;
 
 public:
     Rasterizer(int height = 0, int width = 0);

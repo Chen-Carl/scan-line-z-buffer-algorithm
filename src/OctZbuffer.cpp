@@ -1,39 +1,23 @@
 #include "OctZbuffer.h"
 
-OctZbuffer::OctZbuffer(int height, int width) :
+OctZbuffer::OctZbuffer(int height, int width, const std::vector<Triangle> &triangles) :
     HierarchicalZbuffer(height, width)
 {
-
+    m_octTree = OctTree(triangles);
 }
 
-void OctZbuffer::traversal(std::shared_ptr<TreeNode> node, int depth)
+void OctZbuffer::traversal(std::shared_ptr<TreeNode> node)
 {
     if (node != nullptr)
     {
-        int x = static_cast<int>((node->aabb.getMinBorder(0) + 1.0f) * m_width / 2);
-        int y = static_cast<int>(m_height - (node->aabb.getMinBorder(1) + 1.0f) * m_height / 2);
-        for (int i = 0; i < m_zLevels - depth; i++)
-        {
-            x /= 2;
-            y /= 2;
-        }
-
-        if (node->aabb.getMaxBorder(2) < m_zBuffers[m_zLevels - depth](x, y))
-        {
-            return;
-        }
-
+        drawTreeNode(node);
         for (int i = 0; i < 8; i++)
         {
-            traversal(node->children[i], depth + 1);
-        }
-
-        for (const Triangle &triangle : node->triangles)
-        {
-            drawTriangle(triangle);
+            traversal(node->children[i]);
         }
     }
 }
+
 /*
 void OctZbuffer::drawTriangle(const Triangle &triangle)
 {
@@ -126,6 +110,62 @@ void OctZbuffer::drawTriangle(const Triangle &triangle)
     }
 }
 */
+
+void OctZbuffer::drawTreeNode(std::shared_ptr<TreeNode> node)
+{
+    auto [x, y, level] = getTreeNodeLevel(node);
+    float zMax = node->aabb.getMaxBorder(2);
+    if (zMax < m_zBuffers[level](x, y))
+    {
+        for (const Triangle &t : node->triangles)
+        {
+            drawTriangle(t);
+        }
+    }
+}
+
+std::tuple<int, int, int> OctZbuffer::getTreeNodeLevel(std::shared_ptr<TreeNode> node)
+{
+    // get node border
+    int xMax = static_cast<int>(node->aabb.getMaxBorder(0));
+    int xMin = static_cast<int>(node->aabb.getMinBorder(0));
+    int yMax = static_cast<int>(node->aabb.getMaxBorder(1));
+    int yMin = static_cast<int>(node->aabb.getMinBorder(1));
+    xMax -= (xMax == m_width ? 1 : 0);
+    xMin -= (xMin == m_width ? 1 : 0);
+    int xLevel = 0, yLevel = 0;
+    while (xMax - xMin > 1)
+    {
+        xMax /= 2;
+        xMin /= 2;
+        xLevel++;
+    }
+    while (yMax - yMin > 1)
+    {
+        yMax /= 2;
+        yMin /= 2;
+        yLevel++;
+    }
+    int x = xMin;
+    int y = yMin;
+    int level = std::max(xLevel, yLevel);
+    if (xLevel > yLevel)
+    {
+        for (int i = 0; i < xLevel - yLevel; i++)
+        {
+            y /= 2;
+        }
+    }
+    else
+    {
+        for (int i = 0; i < yLevel - xLevel; i++)
+        {
+            x /= 2;
+        }
+    }
+    return std::make_tuple(x, y, level);
+}
+
 std::tuple<int, int, int> OctZbuffer::getTriangleLevelAndCoor(int xMin, int xMax, int yMin, int yMax)
 {
     int xLevel = 0;
@@ -168,7 +208,6 @@ std::tuple<int, int, int> OctZbuffer::getTriangleLevelAndCoor(int xMin, int xMax
 cv::Mat3f OctZbuffer::operator()(const std::vector<Triangle> &triangles)
 {
     std::cout << "OctTree Hierarchical Zbuffer rasterizing ..." << std::endl;
-    m_octTree = OctTree(triangles);
-    traversal(m_octTree.getRoot(), 1);
+    traversal(m_octTree.getRoot());
     return m_frameBuffer;
 }

@@ -41,9 +41,9 @@ cv::Mat3f Zbuffer::operator()(const std::vector<Triangle> &triangles)
                     float wReciprocal = 1.0 / (alpha / v[0][3] + beta / v[1][3] + gamma / v[2][3]);
                     float zInterpolated = alpha * v[0][2] / v[0][3] + beta * v[1][2] / v[1][3] + gamma * v[2][2] / v[2][3];
                     zInterpolated *= wReciprocal;
-                    if (-zInterpolated < m_zBuffer(i, j))
+                    if (zInterpolated < m_zBuffer(i, j))
                     {
-                        m_zBuffer(i, j) = -zInterpolated;
+                        m_zBuffer(i, j) = zInterpolated;
                         m_frameBuffer(i, j) = t.getNormalColor();
                     }
                 }
